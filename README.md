@@ -89,7 +89,23 @@ ___
 ```
 ___
 
+**REST API в Spring Boot**
+Тесты
+>Где в структуре проекта должен находиться контроллер, реализующий маршрут /api/courses/{id}/lessons?
 
+правильный ответ 
+>  src/main/java/project/controller
+>
+>  └── courses
+>
+>      └── LessonsController.java
+
+но в теории сказано что `Префикс /api` то есть правильный вариант должен быть:
+>src/main/java/project/controller/api
+>
+>  └── courses
+>
+>      └── LessonsController.java
 
 
 
