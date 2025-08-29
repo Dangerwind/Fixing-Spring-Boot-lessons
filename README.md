@@ -173,5 +173,55 @@ ___
 там где все import хорошо бы добавить // BEGIN //END чтобы было понятно что туда надо добавить импорт нашего исключения `import io.hexlet.exception.ResourceNotFoundException;`
 а то не сразу понятно что он не добавлен и его надо отдельно прописать.
 
+___
 
+**Сравнение сущностей**
+
+в упражнении
+   
+`Запуск приложения` и `Подсказки` не имеют смысла так как это тренажер и нельзя запустить код! Следует убрать!
+
+___
  
+**Аудит в JPA**
+
+Тоже самое, `Запустите приложение и создайте несколько задач. Убедитесь, что поля createdAt и updatedAt автоматически заполняются` - из тренажера нельзя запустить прилодение
+    
+надо или добавить в import 
+```
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import jakarta.persistence.GeneratedValue;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+```
+или в import написать //BEGIN //END чтобы суденты сами import написали а то сразу непонятно надо писать или уже добавлено
+
+при проверке явных ошидок не выдает но `status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов.`
+
+```
+make: *** wait: No child processes.  Stop.
+make: *** Waiting for unfinished jobs....
+make: *** wait: No child processes.  Stop.
+```
+
+похоже проблема в Makefile 
+
+```
+test:
+	@$(MVN) test -o -q
+```
+
+Получается что задание пройти невозможно.
+__
+
+**Возможности JPA Repository**
+    
+Тоже самое, убрать все про запуск приложения.
+    
+и так же не может завершится `status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов.`
+Даже если код правильно написан.
+    
+В задании нигже не написано надонаписать в application.yml а вайл есть и там есть //BEGIN //END
+   
+___
+   
