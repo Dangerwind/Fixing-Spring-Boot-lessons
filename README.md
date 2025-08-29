@@ -223,5 +223,27 @@ __
     
 В задании ниже не написано что надо написать в application.yml а файл есть и там есть //BEGIN //END
    
-___
-   
+__
+
+
+**Инверсия зависимостей**
+
+   Тоже самое, убрать все про запуск приложения  и так же не может завершится
+
+Линтер ругается на неиспользуемые import в тестах и на ; в 101 строке!!
+
+```
+Starting audit...
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:8:15: Unused import - org.mockito.ArgumentMatchers.anyInt. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:14:15: Unused import - org.springframework.test.web.servlet.result.MockMvcResultMatchers.content. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:16:15: Unused import - org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:38:15: Unused import - org.hamcrest.collection.IsCollectionWithSize.hasSize. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:39:15: Unused import - org.hamcrest.Matchers.everyItem. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:40:15: Unused import - org.hamcrest.Matchers.greaterThanOrEqualTo. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:41:15: Unused import - org.hamcrest.Matchers.lessThanOrEqualTo. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:101:13: '}' at column 13 should be alone on a line. [RightCurly]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:101:14: Empty statement. [EmptyStatement]
+```
+__
+
+
