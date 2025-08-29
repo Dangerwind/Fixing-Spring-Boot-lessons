@@ -167,6 +167,7 @@ curl --request POST \
 ___
 
 **Обработка ошибок**
+   
 В упражнении файл GlobalExceptionHandler.java
 
 там где все import хорошо бы добавить // BEGIN //END чтобы было понятно что туда надо добавить импорт нашего исключения `import io.hexlet.exception.ResourceNotFoundException;`
