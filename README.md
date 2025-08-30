@@ -254,5 +254,27 @@ WelcomeController.java - написано  `@GetMapping(path = "")` но не в
 
 __ 
 
+**Интеграционные тесты**
 
+```
+Linting
+Starting audit...
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:6:8: Unused import - org.instancio.Instancio. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:7:8: Unused import - org.instancio.Select. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:10:8: Unused import - org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:12:8: Unused import - org.springframework.http.MediaType. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:17:15: Unused import - org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:18:15: Unused import - org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:19:15: Unused import - org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:21:8: Unused import - java.util.HashMap. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:25:8: Unused import - io.hexlet.model.Task. [UnusedImports]
+[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:68: Line has trailing spaces. [RegexpSingleline]
+Audit done.
+Checkstyle ends with 10 errors.
+
+status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов.
+```
+Тоже самое, убрать все про запуск приложения и так же не может завершится, Линтер ругается на тесты
+   
+Нигде не написано что надо вписать в application.yml
 
