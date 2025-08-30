@@ -49,7 +49,7 @@ public class PostsController {
     private final PostRepository repository;
 .......
 ```
-тут @Autowired и @AllArgsConstructor делают одно и тоже, стоит `@Autowired` убрать (я понимаю что это пример, не суть, но для насмотренности лучше написать коректно)
+тут @Autowired и @AllArgsConstructor делают одно и тоже, наверное стоит `@Autowired` убрать 
 ___
 >Добавим в @LogExecutionTime два параметра. Первый временно выключит логирование, а второй задаст минимальное время выполнения, ниже которого логировать не нужно:
 
@@ -245,5 +245,14 @@ Starting audit...
 [ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:101:14: Empty statement. [EmptyStatement]
 ```
 __
+
+**Бины и область видимости**
+
+WelcomeController.java - написано  `@GetMapping(path = "")` но не в // BEGIN //END а по заданию надо отвечать на /welcome !!! И непонятно можно ли исправлять то что не в // BEGIN //END !
+
+ Тоже самое, убрать все про запуск приложения  и так же не может завершится, Линтер ругается на тесты
+
+__ 
+
 
 
