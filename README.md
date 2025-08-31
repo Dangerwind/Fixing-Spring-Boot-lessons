@@ -257,24 +257,75 @@ __
 **Интеграционные тесты**
 
 ```
-Linting
-Starting audit...
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:6:8: Unused import - org.instancio.Instancio. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:7:8: Unused import - org.instancio.Select. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:10:8: Unused import - org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:12:8: Unused import - org.springframework.http.MediaType. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:17:15: Unused import - org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:18:15: Unused import - org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:19:15: Unused import - org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:21:8: Unused import - java.util.HashMap. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:25:8: Unused import - io.hexlet.model.Task. [UnusedImports]
-[ERROR] /usr/src/app/src/test/java/io/hexlet/controller/TaskControllerTest.java:68: Line has trailing spaces. [RegexpSingleline]
-Audit done.
-Checkstyle ends with 10 errors.
-
 status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов.
 ```
-Тоже самое, убрать все про запуск приложения и так же не может завершится, Линтер ругается на тесты
+Тоже самое, убрать все про запуск приложения и так же не может завершится
    
 Нигде не написано что надо вписать в application.yml
 
+Не смог пройти упражнение из-за "status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов."
+
+___
+
+**Шаблон проектирования DTO**
+
+а задании написано `src/main/java/io/hexlet/controller/PostController.java` а в файлах `PostSController.java` ошибка!
+    
+Но мы же не можем запустить из упражнения, потому проверить это нет возможности. Это стоит убрать.
+
+___
+
+**Преобразование DTO в сущность**
+
+`Запуск приложения` - стоит убрать тк нет запуска!
+
+___
+
+**Преобразование DTO в сущность для обновления**
+
+Линтер ругается на тест
+`[ERROR] /usr/src/app/src/test/java/io/hexlet/ApplicationTest.java:26:8: Unused import - io.hexlet.dto.ProductDTO. [UnusedImports]`
+
+___
+
+**Автоматическая конвертация сущностей в DTO и обратно**
+
+В приммере не плохо бы дать обяснения что и зачем тут написано, что все это значит
+```
+@Mapper(
+    nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+    componentModel = MappingConstants.ComponentModel.SPRING,
+    unmappedTargetPolicy = ReportingPolicy.IGNORE
+)
+```
+
+если убрать `-o -q \` в Makefile то проверка проходит, иначе говорит что `status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов.`
+```
+test:
+	@$(MVN) test -o -q \
+```
+
+___
+   
+**Частичное обновление**
+   
+дан пример конфигурации... что это значит? как и что настраивает чего?
+```
+@Configuration
+public class JacksonConfig {
+    @Bean
+    Jackson2ObjectMapperBuilder objectMapperBuilder() {
+        var builder = new Jackson2ObjectMapperBuilder();
+        builder.serializationInclusion(JsonInclude.Include.NON_NULL)
+                .modulesToInstall(new JsonNullableModule());
+        return builder;
+    }
+}
+```
+
+после первой проуерки `status: finished → Упс, что то пошло не так, код работал слишком долго и был остановлен. Проверьте условия выхода из циклов.`
+если убрать `-o -q \` в Makefile, запустить, все успешно проходит, потом вернуть `-o -q \` то потом тожe все успешно проходит.
+   
+___
+
+   
